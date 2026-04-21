@@ -1,0 +1,21 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+#sidebar #avatar {
+  display: none;
+}
+
+#sidebar .sidebar-bottom .icon-border {
+  background-color: transparent;
+}
+
+#sidebar .site-subtitle {
+  font-style: normal !important;
+}
