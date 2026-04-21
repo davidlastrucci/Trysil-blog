@@ -19,7 +19,7 @@ an ORM framework for Delphi.
 
 ## A small example
 
-```delphi
+```pascal
 [TTable('Customers')]
 TCustomer = class
 strict private
@@ -40,7 +40,7 @@ public
 end;
 ```
 
-```delphi
+```pascal
 var
   LCustomers: TTList<TCustomer>;
   LCustomer: TCustomer;
