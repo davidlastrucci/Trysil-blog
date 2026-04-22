@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-<p class="text-center"><a href="https://github.com/davidlastrucci/Trysil"><img src="/assets/img/trysil-logo.png" alt="Trysil" class="normal" style="max-width: 75%; height: auto;" /></a></p>
+<p class="text-center"><a href="https://github.com/davidlastrucci/Trysil"><img src="/assets/img/trysil-logo-light.png" alt="Trysil" class="light" style="max-width: 75%; height: auto;" /><img src="/assets/img/trysil-logo-dark.png" alt="Trysil" class="dark" style="max-width: 75%; height: auto;" /></a></p>
 
 ## About this blog
 
