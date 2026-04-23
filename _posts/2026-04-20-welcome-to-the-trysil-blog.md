@@ -45,7 +45,7 @@ var
   LCustomers: TTList<TCustomer>;
   LCustomer: TCustomer;
 begin
-  LCustomers := TTList<TCustomer>.Create;
+  LCustomers := FContext.CreateEntityList<TCustomer>();
   try
     FContext.SelectAll<TCustomer>(LCustomers);
     for LCustomer in LCustomers do
