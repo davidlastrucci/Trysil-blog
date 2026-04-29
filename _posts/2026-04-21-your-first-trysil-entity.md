@@ -76,10 +76,12 @@ program FirstEntity;
 {$APPTYPE CONSOLE}
 
 uses
-  Trysil,
+  Trysil.Types,
+  Trysil.Attributes,
   Trysil.Generics.Collections,
   Trysil.Data,
-  Trysil.Data.FireDAC.SQLite;
+  Trysil.Data.FireDAC.SQLite,
+  Trysil.Context;
 
 var
   LConnection: TTConnection;
