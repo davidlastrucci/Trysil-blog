@@ -30,7 +30,7 @@ The actions, top to bottom:
 - **Create new Trysil multi-tenant API REST** — scaffold a brand-new REST project (enabled only when no project is open, since it creates one).
 - **Settings** and **About**.
 
-The model itself isn't stored in your source. It's persisted as JSON in a `__trysil.model` folder inside the project directory — versionable, separate from the generated code, and the single source both generators read from.
+The model itself isn't stored in your source. It's persisted as JSON in a `__trysil` folder inside the project directory — versionable, separate from the generated code, and the single source both generators read from.
 
 ## The design surface
 
