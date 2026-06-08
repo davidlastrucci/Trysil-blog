@@ -147,3 +147,6 @@ It also makes consulting work tractable. When the customer's preferred database 
 The Trysil driver layer is deliberately thin: it only owns the parts of SQL that databases disagree on, and delegates everything else to FireDAC. The payoff is that `TTConnection` is a real boundary — if you declare your variable against the base type, the rest of your application is database-agnostic by construction.
 
 Next post: `RawSelect` — what to do when attribute-driven queries can't express what you need.
+
+> **Update — 2026-06-08.** Three more drivers have shipped: **InterBase**, **MariaDB**, and **Oracle**. Trysil now covers seven databases — Firebird, InterBase, MariaDB, Oracle, PostgreSQL, SQL Server, and SQLite — through the exact same `TTConnection` boundary described above. Nothing in this post changes: each new driver is just another `TTGenericConnection` subclass with its own syntax strategy, and the code above `TTConnection` doesn't know the difference.
+{: .prompt-info }
