@@ -119,3 +119,6 @@ This is enabled only when no project is open, because it creates a new one. It's
 The Expert doesn't replace hand-written entities — plenty of real models need attributes the designer doesn't surface, and you can always edit the generated units afterward. What it removes is the tedious, error-prone part: keeping a database schema and a set of entity classes in sync by hand. Design once, generate both, and the two can't drift.
 
 If you've been hand-writing every `[TColumn]`, give it a session in the designer. Your first model is a few minutes of clicking, and the output is code you'd have been proud to write yourself.
+
+> **Update — 2026-06-11.** The Trysil menu has gained one more action: **Install AI assistant skills**. Trysil ships a set of tool-agnostic instruction files that teach an LLM how to use its public API — the ORM, the JSON layer, and the HTTP module — and the Expert downloads them straight into your project, in the layout your coding assistant expects (Claude Code, Cursor, Copilot, Windsurf, or a generic folder). Pick your tool and your AI pair-programmer knows Trysil's attributes, `TTContext`, the filter builder, and the rest — no documentation to paste into the prompt. Same idea as the generators in this post: let the tooling remove the boilerplate, here the boilerplate of explaining the framework to a model.
+{: .prompt-info }
