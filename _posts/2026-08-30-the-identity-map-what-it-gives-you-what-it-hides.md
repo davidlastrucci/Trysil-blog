@@ -108,3 +108,6 @@ The identity map is a small feature with a disproportionate effect on the feel o
 Trysil's choice — scoped to the context, on by default per context, off for JSON — threads the useful path: you get the benefits in the shapes where they apply, and nothing leaks where it shouldn't.
 
 Next: `TTSession<T>` in practice — the unit-of-work pattern using the full-clone approach we argued for back in post #3.
+
+> **Update - 2026-09-13.** One thing the map did, it did too well. `Add` used to remove the previous instance before storing a new one, and the dictionary owns its values, so it destroyed an object the caller could still be holding. The read path never reached it - a lookup comes first and reuses what it finds - so the only way in was two **new** entities landing on the same key, with the map picking a loser it had no way to identify. From 2.0.0 two instances claiming one identity inside one context is an error that names the class and the key, and the map never destroys anything it was handed.
+{: .prompt-info }

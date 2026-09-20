@@ -194,3 +194,6 @@ Three situations tip back to method hooks:
 Trysil gives you two event mechanisms because two shapes of problem show up. Method hooks handle the entity-local, domain-sized logic: "this field must match that sum". Event classes handle the cross-cutting, infrastructure-sized logic: "tell the bus about this, write the audit, evict the cache". Attributes wire both without demanding a class hierarchy, and the resolver runs them in a predictable Before/After pipeline around the transaction.
 
 Next: optimistic locking with `TTVersion` — the one column that saves you from the race condition you didn't notice you had.
+
+> **Update - 2026-09-13.** One rule worth adding to the Before/After pipeline described here: `OldEntity<T>` is memoized on first access, so it has to be read for the first time in a `Before*` event. Read it first in `DoAfter` and you get the row the command has just written, which is not what the name promises; read it in `DoBefore` and the value is kept, so `DoAfter` sees what `DoBefore` saw. From 2.0.0 the first case is refused rather than answered with the wrong row, and `OldEntity<T>` returns `nil` when there is no old row at all.
+{: .prompt-info }

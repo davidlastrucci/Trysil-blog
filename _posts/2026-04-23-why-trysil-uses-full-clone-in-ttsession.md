@@ -97,3 +97,6 @@ For an ORM whose target use case is business applications with sessions in the h
 The result reads like regular Delphi — a list, some clones, three methods (`Insert`, `Update`, `Delete`), one `ApplyChanges`. No surprises, no hidden passes, no class-level magic.
 
 Sometimes the simple implementation is the one the language lets you write.
+
+> **Update - 2026-09-13.** 2.0.0 changed how the session releases what it cloned, without changing a line above the API. The clones lived in containers that owned them and freed them with a plain `Free`; they now go through the framework's disposal path, so a clone's lazy members are released with it and its entry leaves the undo log that a rollback would otherwise write into. The session also tells two entities apart by **identity** now rather than by their `Equals`: an entity class that overrides `Equals` and `GetHashCode` by value - legitimate, and not rare - used to make two different rows collapse onto one key. Nothing in this post changes, and the full-clone design is what kept both fixes local.
+{: .prompt-info }

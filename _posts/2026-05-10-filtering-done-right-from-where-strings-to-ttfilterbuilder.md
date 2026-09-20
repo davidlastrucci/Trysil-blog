@@ -160,3 +160,6 @@ This is how the HTTP controllers in Trysil.Http build paginated endpoints: one f
 `TTFilter.Create(whereClause)` is the short answer for quick queries. `TTFilterBuilder<T>` is the right answer for anything that outlives the method it's written in — it validates columns at query-build time, picks the right field type from metadata, and gives you a name for every operator. Pick the tool that fits the scope; Trysil has both on purpose.
 
 Next post: change tracking and soft delete — six attributes that make your tables remember who touched what, and when.
+
+> **Update - 2026-09-13.** Two changes in 2.0.0 sit underneath the API shown here. `OrderByAsc('Lastname')` now stores the name it resolved in the metadata instead of the string it was given, so the `ORDER BY` carries the canonical column name. And every identifier the builder emits is quoted for the engine you are on: a column called `Value`, `Level` or `Order` stops being something you have to know about, and a filter on a `[TJoin]` entity qualifies the column with its table instead of naming a select-list alias, which no engine resolves inside a `WHERE`. The code in this post is unchanged.
+{: .prompt-info }

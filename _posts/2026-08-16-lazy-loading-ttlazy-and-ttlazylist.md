@@ -153,3 +153,6 @@ The `[TRequired]` validation attribute (from the validation post) understands la
 The elegance is that the lazy field carries both the FK mapping *and* the navigation property. One declaration, one role. The user-facing surface is a trivial getter/setter, and the complexity lives where it belongs: inside the framework.
 
 Next: the identity map — what it is, what it saves you, what it can hide.
+
+> **Update - 2026-09-13.** *Lifetime follows the owning entity* is now literally true. Until 2.0.0 the framework kept every lazy wrapper it built in one list that emptied only when the context died: freeing the entity freed none of them, and a `TTLazyList<T>` held on to the rows it had loaded. They are grouped by the entity that owns them now, and released with it. The consequence worth knowing: with the identity map off, an entity you reached through a lazy member - `LOrder.Customer.Entity` - belongs to that member and is freed when the order is, so code that keeps such a reference past the life of the entity it came from has to copy what it needs or read it again. With the map on nothing changes, because the map owns those entities.
+{: .prompt-info }

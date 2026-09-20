@@ -163,3 +163,6 @@ Events are the escape hatch for anything that doesn't fit one of the six shapes 
 Six attributes, one callback, one filter flag. Every tracked table behaves the same; every service method writes zero boilerplate. The database keeps the history; the application sees only the live rows unless it asks otherwise.
 
 Next: the abstraction that lets the *same* entity class run on SQLite, PostgreSQL, Firebird, and SQL Server without a single line of code change.
+
+> **Update - 2026-09-13.** 2.0.0 makes the creation columns mean what they say. `Update<T>` used to rewrite `[TCreatedAt]` and `[TCreatedBy]` on every save, so *created by* answered *whoever touched it last*; they are written on insert and never again now, and the same holds for `[TDeletedAt]` and `[TDeletedBy]`, which only a delete writes. Change tracking columns are also no longer read from a JSON body, so a client cannot write its own audit trail. And a `[TDeletedBy]` with no `[TDeletedAt]` is refused when the entity is mapped, instead of being quietly ignored at runtime.
+{: .prompt-info }
