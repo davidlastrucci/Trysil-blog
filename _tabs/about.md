@@ -30,8 +30,9 @@ and the reasoning behind design decisions — both what worked and what didn't.
 ## About Trysil
 
 Trysil is an attribute-driven ORM for Delphi supporting SQLite, PostgreSQL, FirebirdSQL,
-and SQL Server through FireDAC. It ships with a JSON module for serialization and an
-HTTP module for REST APIs with multi-tenant support.
+InterBase, MariaDB, SQL Server and Oracle through FireDAC. It ships with a JSON module
+for serialization, an HTTP module for REST APIs with multi-tenant support, and an
+OpenAPI module that generates the OpenAPI 3.1 document from the controllers.
 
 Supported Delphi versions: 10.3 Rio through 13 Florence.
 
